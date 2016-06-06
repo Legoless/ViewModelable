@@ -1,6 +1,6 @@
 //
 //  ViewModel.swift
-//  View Modelable
+//  ViewModelable
 //
 //  Created by Dal Rupnik on 04/03/16.
 //  Copyright © 2016 Unified Sense. All rights reserved.

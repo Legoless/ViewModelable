@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3878E6C01D058FF40068097F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878E6BE1D058FF40068097F /* ViewModel.swift */; };
 		3878E6C11D058FF40068097F /* ViewModelObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878E6BF1D058FF40068097F /* ViewModelObservable.swift */; };
+		3878E6C31D05B4EB0068097F /* ModelableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878E6C21D05B4EB0068097F /* ModelableViewController.swift */; };
 		3888B6A01CF393070095EBD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3888B69F1CF393070095EBD9 /* AppDelegate.swift */; };
 		3888B6A21CF393070095EBD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3888B6A11CF393070095EBD9 /* ViewController.swift */; };
 		3888B6A51CF393070095EBD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3888B6A31CF393070095EBD9 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		3878E6BE1D058FF40068097F /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3878E6BF1D058FF40068097F /* ViewModelObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelObservable.swift; sourceTree = "<group>"; };
+		3878E6C21D05B4EB0068097F /* ModelableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelableViewController.swift; sourceTree = "<group>"; };
 		3888B69C1CF393070095EBD9 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3888B69F1CF393070095EBD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3888B6A11CF393070095EBD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				3878E6BE1D058FF40068097F /* ViewModel.swift */,
 				3878E6BF1D058FF40068097F /* ViewModelObservable.swift */,
+				3878E6C21D05B4EB0068097F /* ModelableViewController.swift */,
 			);
 			name = ViewModelable;
 			path = ../ViewModelable;
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3888B6A21CF393070095EBD9 /* ViewController.swift in Sources */,
+				3878E6C31D05B4EB0068097F /* ModelableViewController.swift in Sources */,
 				3878E6C11D058FF40068097F /* ViewModelObservable.swift in Sources */,
 				3878E6C01D058FF40068097F /* ViewModel.swift in Sources */,
 				3888B6A01CF393070095EBD9 /* AppDelegate.swift in Sources */,
