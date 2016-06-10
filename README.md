@@ -9,7 +9,20 @@ View Model has several different states:
 - Loading
 - Loaded
 
-View Model informs the view controller of state changes via observable pattern (similar to delegation).
+View Model informs the view controller of state changes via observable pattern (similar to delegation). The methods received by the observer:
+
+```
+func viewModelDidSetup (viewModel: ViewModel)
+func viewModelWillLoad (viewModel: ViewModel)
+func viewModelDidLoad (viewModel: ViewModel)
+func viewModelDidUpdate (viewModel: ViewModel, updates: [String : AnyObject])
+func viewModelWillUnload (viewModel: ViewModel)
+func viewModelDidUnload (viewModel: ViewModel)
+```
+
+You can also check view model's state with using `.state` property.
+
+
 
 Contact
 ======
