@@ -20,8 +20,7 @@ func viewModelWillUnload (viewModel: ViewModel)
 func viewModelDidUnload (viewModel: ViewModel)
 ```
 
-You can also check view model's state with using `.state` property.
-
+You can also check view model's state with using `.state` property. State transitions are asynchronous, because view model usually works with async operations. The callback does not necesserily happen on main thread.
 
 
 Contact
