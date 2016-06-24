@@ -119,7 +119,7 @@ public class ViewModel: NSObject {
     /*!
      Should be called when view disappears, this will clean state of view model.
      */
-    public final func unload() {
+    public func unload() {
 
         if let observer = observer {
             observer.viewModelWillUnload(self)
