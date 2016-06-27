@@ -13,7 +13,7 @@ View Model has several different states:
 
 View Model informs the view controller of state changes via observable pattern (similar to delegation). The methods received by the observer:
 
-```
+```swift
 func viewModelDidSetup (viewModel: ViewModel)
 func viewModelWillLoad (viewModel: ViewModel)
 func viewModelDidLoad (viewModel: ViewModel)
