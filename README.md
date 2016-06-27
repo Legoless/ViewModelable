@@ -24,6 +24,42 @@ func viewModelDidUnload (viewModel: ViewModel)
 
 You can also check view model's state with using `.state` property. State transitions are asynchronous, because view model usually works with async operations. The callback does not necessarily happen on main thread, so be sure to dispatch correctly.
 
+# Example
+
+```
+class CarDetailViewModel : ViewModel {
+    // MARK: Input
+    var make : String?
+    var model : String?
+    
+    // MARK: Output
+    
+    private(set) var horsePower : Double = 0.0
+    private(set) var weight : Double = 0.0
+    
+    func updateOutput() {
+        guard let make = make, model = model else {
+            horsePower = 0.0
+            weight = 0.0
+            
+            return
+        }
+        
+        if make == "Ford" && model == "Mustang GT" {
+            horsePower = 450
+            weight = 1500
+        }
+        else if make == "Lamborgihini" && model == "Huracan" {
+            horsePower = 782
+            weight = 2100
+        }
+        else {
+            horsePower = 120
+            weight = 1100
+        }
+    }
+}
+```
 
 Contact
 ======
