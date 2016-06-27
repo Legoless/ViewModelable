@@ -26,8 +26,10 @@ You can also check view model's state with using `.state` property. State transi
 
 # Example
 
+The example below implements a simple view model for a car.
+
 ```swift
-class CarDetailViewModel : ViewModel {
+class CarViewModel : ViewModel {
     // MARK: Input
     var make : String?
     var model : String?
@@ -43,12 +45,7 @@ class CarDetailViewModel : ViewModel {
             
             return
         }
-        
-        if make == "Ford" && model == "Mustang GT" {
-            horsePower = 450
-            weight = 1500
-        }
-        else if make == "Lamborgihini" && model == "Huracan" {
+        if make == "Lamborgihini" && model == "Huracan" {
             horsePower = 782
             weight = 2100
         }
@@ -59,6 +56,9 @@ class CarDetailViewModel : ViewModel {
     }
 }
 ```
+
+A view controller implementation for the view model.
+
 
 Contact
 ======
