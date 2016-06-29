@@ -59,6 +59,11 @@ class CarViewModel : ViewModel {
 
 A view controller implementation for the view model.
 
+```swift
+class CarViewController : ModelableViewController {
+}
+
+```
 
 Contact
 ======
