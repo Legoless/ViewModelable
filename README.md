@@ -11,6 +11,8 @@ View Model has several different states:
 - Loading
 - Loaded
 
+If is possible to transition back from loaded to setuped state, but not to initialized.
+
 View Model informs the view controller of state changes via observable pattern (similar to delegation). The methods received by the observer:
 
 ```swift
