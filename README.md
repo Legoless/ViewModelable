@@ -59,10 +59,23 @@ class CarViewModel : ViewModel {
 }
 ```
 
-A view controller implementation for the view model.
+A simple view controller implementation for the view model.
 
 ```swift
-class CarViewController : ModelableViewController {
+class CarViewController : ModelableViewController, ViewModelReferencable, ViewModelObservable {
+    //
+    // MARK: ViewModelReferencable
+    //
+    
+    typealias T = CarViewModel
+    
+    var viewModel = T()
+    
+    var viewModelReference: ViewModel! {
+        return viewModel
+    }
+    
+    
 }
 
 ```
