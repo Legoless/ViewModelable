@@ -75,7 +75,11 @@ class CarViewController : ModelableViewController, ViewModelReferencable, ViewMo
         return viewModel
     }
     
-    
+    func viewModelDidLoad (viewModel: ViewModel) {
+        //
+        // Update screen properties
+        //
+    }
 }
 
 ```
