@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CarViewController.swift
 //  Demo
 //
 //  Created by Dal Rupnik on 23/05/16.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ViewController: ModelableViewController {
+class CarViewController: ModelableViewController {
 }
 

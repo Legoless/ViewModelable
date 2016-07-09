@@ -11,11 +11,12 @@ import Foundation
 ///
 /// View Model state representation
 ///
-public enum ViewModelState : UInt {
-    case Initialized    // View Model was initialized (first state). Setup should be called.
-    case Setuped        // View Model was setuped. Setup was called, but load was not called yet. Input should be available.
+public enum State : UInt {
+    case Initialized    // View Model was initialized (first state). Setup should be called, before output is available.
+    case Setuped        // View Model was setuped. Setup was called, but data was not loaded yet. Output is should be available.
     case Loading        // View Model is currently refreshing data, offline data should be available.
     case Loaded         // View Model is loaded and subscribed, it will emit updates.
+    case Unloading      // View Model was unloaded and will transition to Setuped state.
 }
 
 ///
@@ -33,7 +34,10 @@ public class ViewModel: NSObject {
     // When view model was initialized
     public private(set) var initializationDate = NSDate()
     
-    public private(set) var state = ViewModelState.Initialized
+    // When view model was loaded
+    public private(set) var loadDate : NSDate?
+    
+    public private(set) var state = State.Initialized
     
     //
     // Child view models that are contained
@@ -44,8 +48,6 @@ public class ViewModel: NSObject {
     // MARK: Initialization
     //
     deinit {
-        unload()
-        
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
@@ -62,10 +64,9 @@ public class ViewModel: NSObject {
             return
         }
         
-        setDefaults()
-        
         state = .Setuped
         
+        setDefaults()
         updateOutput()
         
         //
@@ -84,7 +85,11 @@ public class ViewModel: NSObject {
     /*!
      Begins loading view model, starting by root subscription, should be called in view did appear.
      */
-    public func load() {
+    public final func load() {
+        if state != .Setuped {
+            return
+        }
+        
         state = .Loading
         
         //
@@ -102,6 +107,8 @@ public class ViewModel: NSObject {
         for viewModel in childViewModels {
             viewModel.load()
         }
+        
+        startLoading()
     }
     
     //
@@ -119,20 +126,26 @@ public class ViewModel: NSObject {
     /*!
      Should be called when view disappears, this will clean state of view model.
      */
-    public func unload() {
-
+    public final func unload() {
+        if state != .Loaded {
+            return
+        }
+        
+        state = .Unloading
+        
         if let observer = observer {
             observer.viewModelWillUnload(self)
         }
         
-        //clearOutput()
+        //
+        // Load child view models
+        //
         
-        state = .Setuped
-        
-        if let observer = observer {
-            observer.viewModelDidUnload(self)
+        for viewModel in childViewModels {
+            viewModel.unload()
         }
-
+        
+        startUnloading()
     }
     
     //
@@ -140,19 +153,34 @@ public class ViewModel: NSObject {
     // Observer is notified of model successfully loading. Output variables are reset to ensure the most correct state.
     //
     public final func finishLoading() {
-
-        updateOutput()
         
         state = .Loaded
-    
+        loadDate = NSDate()
+        
+        updateOutput()
+        
         if let observer = self.observer {
             observer.viewModelDidLoad(self)
         }
     }
     
+    /*!
+     Finish unloading must be called by a subclass to correctly transition back into Setuped state.
+     */
+    public final func finishUnloading() {
+        
+        state = .Setuped
+        loadDate = nil
+        
+        updateOutput()
+        
+        if let observer = observer {
+            observer.viewModelDidUnload(self)
+        }
+    }
     
     //
-    // MARK: Public Methods that should be overriden by subclass, otherwise it will crash.
+    // MARK: Public Methods that should be overriden by subclass for correct life-cycle.
     //
     
     /*!
@@ -170,17 +198,14 @@ public class ViewModel: NSObject {
         finishLoading()
     }
     
+    public func startUnloading() {
+        finishUnloading()
+    }
+    
     /*!
      Must be overriden by a subclass to correctly update output. This method should take any input
      and provide output variables.
      */
     public func updateOutput() {
-    }
-    
-    /*!
-     Must be overriden by a subclass to correctly clean output
-     */
-    public func clearOutput() {
-        //assert(true, "clearOutput - Should be overriden by a subclass and never called on this class.")
     }
 }

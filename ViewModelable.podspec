@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
 
   s.name         = "ViewModelable"
-  s.version      = "0.1.2"
-  s.summary      = "A basic view model implementation."
+  s.version      = "0.2.0"
+  s.summary      = "A lightweight Swift view model implementation with no dependencies."
 
   s.description  = <<-DESC
-                   A simple, easy to use view model implementation.
+                   A lightweight Swift view model implementation with no external dependencies.
                    DESC
 
   s.homepage     = "http://github.com/Legoless/ViewModelable"
