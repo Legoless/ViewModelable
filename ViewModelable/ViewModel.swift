@@ -66,7 +66,7 @@ public class ViewModel: NSObject {
         
         state = .Setuped
         
-        setDefaults()
+        startSetup()
         updateOutput()
         
         //
@@ -184,20 +184,25 @@ public class ViewModel: NSObject {
     //
     
     /*!
-     Should be overriden, if there are any input defaults that should be set by subclass.
+     Should be overriden, if there are any input defaults that should be set by subclass as the setup
+     of the view model.
      */
-    public func setDefaults () {
+    public func startSetup () {
         
     }
     
     /*!
      Must be overriden by a subclass to correctly start loading output variables, if view model is
-     doing custom loading.
+     doing custom loading. Subclass should not call super's startLoading, unless specifically required.
      */
     public func startLoading() {
         finishLoading()
     }
     
+    /*!
+     Must be overriden by a subclass to correctly start unloading output variables. This is to clean
+     Memory up if the corresponding view controller is not on screen.
+     */
     public func startUnloading() {
         finishUnloading()
     }
