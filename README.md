@@ -10,8 +10,9 @@ View Model has several different states:
 - Setuped
 - Loading
 - Loaded
+- Unloading
 
-If is possible to transition back from loaded to setuped state, but not to initialized.
+The cycle follows the state changes. Unload will transition back to setuped state.
 
 View Model informs the view controller of state changes via observable pattern (similar to delegation). The methods received by the observer:
 
