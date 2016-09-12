@@ -12,43 +12,43 @@ import Foundation
 /// View Model state representation
 ///
 public enum State : UInt {
-    case Initialized    // View Model was initialized (first state). Setup should be called, before output is available.
-    case Setuped        // View Model was setuped. Setup was called, but data was not loaded yet. Output is should be available.
-    case Loading        // View Model is currently refreshing data, offline data should be available.
-    case Loaded         // View Model is loaded and subscribed, it will emit updates.
-    case Unloading      // View Model was unloaded and will transition to Setuped state.
+    case initialized    // View Model was initialized (first state). Setup should be called, before output is available.
+    case setuped        // View Model was setuped. Setup was called, but data was not loaded yet. Output is should be available.
+    case loading        // View Model is currently refreshing data, offline data should be available.
+    case loaded         // View Model is loaded and subscribed, it will emit updates.
+    case unloading      // View Model was unloaded and will transition to Setuped state.
 }
 
 ///
 /// Abstract Generic View model object, abstract
 ///
-public class ViewModel: NSObject {
+open class ViewModel: NSObject {
     
     //
     // MARK: Public Properties
     //
     
     // Observer of view model, usually a controller or a view
-    public weak var observer : ViewModelObservable?
+    open weak var observer : ViewModelObservable?
     
     // When view model was initialized
-    public private(set) var initializationDate = NSDate()
+    open fileprivate(set) var initializationDate = Date()
     
     // When view model was loaded
-    public private(set) var loadDate : NSDate?
+    open fileprivate(set) var loadDate : Date?
     
-    public private(set) var state = State.Initialized
+    open fileprivate(set) var state = State.initialized
     
     //
     // Child view models that are contained
     //
-    public private(set) var childViewModels : [ViewModel] = [ViewModel]()
+    open fileprivate(set) var childViewModels : [ViewModel] = [ViewModel]()
     
     //
     // MARK: Initialization
     //
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     //
@@ -60,11 +60,11 @@ public class ViewModel: NSObject {
      should be prepared. Input variables usually should not have Live Realm objects, but their snapshots.
      */
     public final func setup () {
-        if state != .Initialized {
+        if state != .initialized {
             return
         }
         
-        state = .Setuped
+        state = .setuped
         
         startSetup()
         updateOutput()
@@ -86,11 +86,11 @@ public class ViewModel: NSObject {
      Begins loading view model, starting by root subscription, should be called in view did appear.
      */
     public final func load() {
-        if state != .Setuped {
+        if state != .setuped {
             return
         }
         
-        state = .Loading
+        state = .loading
         
         //
         // Update output to ensure loading state.
@@ -115,8 +115,8 @@ public class ViewModel: NSObject {
     // MARK: Public Methods
     //
     
-    public final func addChildViewModel(viewModel: ViewModel) {
-        if (childViewModels.indexOf({ $0 === viewModel }) != nil) {
+    public final func addChildViewModel(_ viewModel: ViewModel) {
+        if (childViewModels.index(where: { $0 === viewModel }) != nil) {
             return
         }
         
@@ -127,11 +127,11 @@ public class ViewModel: NSObject {
      Should be called when view disappears, this will clean state of view model.
      */
     public final func unload() {
-        if state != .Loaded {
+        if state != .loaded {
             return
         }
         
-        state = .Unloading
+        state = .unloading
         
         if let observer = observer {
             observer.viewModelWillUnload(self)
@@ -154,8 +154,8 @@ public class ViewModel: NSObject {
     //
     public final func finishLoading() {
         
-        state = .Loaded
-        loadDate = NSDate()
+        state = .loaded
+        loadDate = Date()
         
         updateOutput()
         
@@ -169,7 +169,7 @@ public class ViewModel: NSObject {
      */
     public final func finishUnloading() {
         
-        state = .Setuped
+        state = .setuped
         loadDate = nil
         
         updateOutput()
@@ -187,7 +187,7 @@ public class ViewModel: NSObject {
      Should be overriden, if there are any input defaults that should be set by subclass as the setup
      of the view model.
      */
-    public func startSetup () {
+    open func startSetup () {
         
     }
     
@@ -195,7 +195,7 @@ public class ViewModel: NSObject {
      Must be overriden by a subclass to correctly start loading output variables, if view model is
      doing custom loading. Subclass should not call super's startLoading, unless specifically required.
      */
-    public func startLoading() {
+    open func startLoading() {
         finishLoading()
     }
     
@@ -203,7 +203,7 @@ public class ViewModel: NSObject {
      Must be overriden by a subclass to correctly start unloading output variables. This is to clean
      Memory up if the corresponding view controller is not on screen.
      */
-    public func startUnloading() {
+    open func startUnloading() {
         finishUnloading()
     }
     
@@ -211,6 +211,6 @@ public class ViewModel: NSObject {
      Must be overriden by a subclass to correctly update output. This method should take any input
      and provide output variables.
      */
-    public func updateOutput() {
+    open func updateOutput() {
     }
 }

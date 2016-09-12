@@ -35,7 +35,7 @@ public protocol ViewModelObservable : NSObjectProtocol {
      
      - parameter viewModel: setuped view model
      */
-    func viewModelDidSetup (viewModel: ViewModel)
+    func viewModelDidSetup (_ viewModel: ViewModel)
     
     /*!
      Called after calling setup method, when root subscriptions of the view model begin loading.
@@ -46,7 +46,7 @@ public protocol ViewModelObservable : NSObjectProtocol {
      
      - parameter viewModel: view model to be loaded
      */
-    func viewModelWillLoad (viewModel: ViewModel)
+    func viewModelWillLoad (_ viewModel: ViewModel)
     
     /*!
      Called when view model has finished loading and all output variables are available
@@ -55,7 +55,7 @@ public protocol ViewModelObservable : NSObjectProtocol {
      
      - parameter viewModel: loaded view model
      */
-    func viewModelDidLoad (viewModel: ViewModel)
+    func viewModelDidLoad (_ viewModel: ViewModel)
     
     /*!
      Call to observer when view model updated a part of data (not entire set). The method can
@@ -63,7 +63,7 @@ public protocol ViewModelObservable : NSObjectProtocol {
      
      - parameter viewModel: updated view model
      */
-    func viewModelDidUpdate (viewModel: ViewModel, updates: [String : AnyObject])
+    func viewModelDidUpdate (_ viewModel: ViewModel, updates: [String : AnyObject])
     
     /*!
      View model will transition back from Loaded state to Setuped state, since unload was called.
@@ -71,14 +71,14 @@ public protocol ViewModelObservable : NSObjectProtocol {
      
      - parameter viewModel: view model to be unloaded
      */
-    func viewModelWillUnload (viewModel: ViewModel)
+    func viewModelWillUnload (_ viewModel: ViewModel)
     
     /*!
      View model transitioned back to setuped state and objects are not available anymore.
      
      - parameter viewModel: unloaded view model
      */
-    func viewModelDidUnload (viewModel: ViewModel)
+    func viewModelDidUnload (_ viewModel: ViewModel)
 }
 
 //
@@ -87,27 +87,27 @@ public protocol ViewModelObservable : NSObjectProtocol {
 
 extension ViewModelObservable {
     
-    public func viewModelDidSetup (viewModel: ViewModel) {
+    public func viewModelDidSetup (_ viewModel: ViewModel) {
         
     }
     
-    public func viewModelWillLoad (viewModel: ViewModel) {
+    public func viewModelWillLoad (_ viewModel: ViewModel) {
         
     }
     
-    public func viewModelDidLoad (viewModel: ViewModel) {
+    public func viewModelDidLoad (_ viewModel: ViewModel) {
         
     }
     
-    public func viewModelDidUpdate (viewModel: ViewModel, updates: [String : AnyObject]) {
+    public func viewModelDidUpdate (_ viewModel: ViewModel, updates: [String : AnyObject]) {
         
     }
     
-    public func viewModelWillUnload (viewModel: ViewModel) {
+    public func viewModelWillUnload (_ viewModel: ViewModel) {
         
     }
     
-    public func viewModelDidUnload (viewModel: ViewModel) {
+    public func viewModelDidUnload (_ viewModel: ViewModel) {
         
     }
 }
