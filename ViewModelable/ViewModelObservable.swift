@@ -63,7 +63,7 @@ public protocol ViewModelObservable : NSObjectProtocol {
      
      - parameter viewModel: updated view model
      */
-    func viewModelDidUpdate (_ viewModel: ViewModel, updates: [String : AnyObject])
+    func viewModelDidUpdate (_ viewModel: ViewModel, updates: [String : Any])
     
     /*!
      View model will transition back from Loaded state to Setuped state, since unload was called.
@@ -99,7 +99,7 @@ extension ViewModelObservable {
         
     }
     
-    public func viewModelDidUpdate (_ viewModel: ViewModel, updates: [String : AnyObject]) {
+    public func viewModelDidUpdate (_ viewModel: ViewModel, updates: [String : Any]) {
         
     }
     
