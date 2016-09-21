@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class ModelableViewController : UIViewController {
+open class ModelableViewController : UIViewController {
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let viewModelController = self as? ViewModelReferencable, viewModel = viewModelController.viewModelReference {
+        if let viewModelController = self as? ViewModelReferencable, let viewModel = viewModelController.viewModelReference {
             
             if let viewController = self as? ViewModelObservable {
                 viewModel.observer = viewController
@@ -31,18 +31,18 @@ public class ModelableViewController : UIViewController {
         }
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let viewModelController = self as? ViewModelReferencable, viewModel = viewModelController.viewModelReference {
+        if let viewModelController = self as? ViewModelReferencable, let viewModel = viewModelController.viewModelReference {
             viewModel.load()
         }
     }
 
-    public override func viewWillDisappear(animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if let viewModelController = self as? ViewModelReferencable, viewModel = viewModelController.viewModelReference {
+        if let viewModelController = self as? ViewModelReferencable, let viewModel = viewModelController.viewModelReference {
             viewModel.unload()
         }
     }
