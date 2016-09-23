@@ -2,6 +2,8 @@
 
 ViewModelable is a simple and lightweight **MVVM** Swift implementation without any external dependencies for iOS. MVVM pattern is usually used with Reactive Extensions, but not necessary. View Model serves to separate any non-UI code away from View Controllers in this case. Each `UIViewController` should have a single instance of a corresponding view model. The logic in view model should always be able to create the initial state, regardless of the device state (even without an internet connection, the view model should be valid).
 
+*Use 0.2.x version for Swift 2 and 0.3.x and newer for Swift 3.*
+
 Each View Model should have input variables and output variables, which get populated based on input or local cache. Output variables usually should not be optional. **The concept is that output is always available for UIViewController to render, regardless of device state.**
 
 View Model has several different states:
