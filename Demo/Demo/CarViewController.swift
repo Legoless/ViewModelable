@@ -8,6 +8,6 @@
 
 import UIKit
 
-class CarViewController: ModelableViewController {
+class CarViewController: ModelableViewController<CarViewModel> {
 }
 

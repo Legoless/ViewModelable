@@ -47,6 +47,10 @@ open class ViewModel: NSObject {
     //
     // MARK: Initialization
     //
+    public required override init() {
+        super.init()
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
