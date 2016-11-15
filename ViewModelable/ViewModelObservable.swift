@@ -82,7 +82,7 @@ public protocol ViewModelObservable : NSObjectProtocol {
 }
 
 //
-// MARK: Default implementations
+// MARK: Default implementations, so they are optional.
 //
 
 extension ViewModelObservable {

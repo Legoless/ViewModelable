@@ -25,24 +25,30 @@ public enum State : UInt {
 open class ViewModel: NSObject {
     
     //
+    // MARK: Private Properties
+    //
+    
+    //
     // MARK: Public Properties
     //
     
+    public private(set) weak var parent: ViewModel?
+    
     // Observer of view model, usually a controller or a view
-    open weak var observer : ViewModelObservable?
+    public weak var observer : ViewModelObservable?
     
     // When view model was initialized
-    open fileprivate(set) var initializationDate = Date()
+    public fileprivate(set) var initializationDate = Date()
     
     // When view model was loaded
-    open fileprivate(set) var loadDate : Date?
+    public fileprivate(set) var loadDate : Date?
     
-    open fileprivate(set) var state = State.initialized
+    public fileprivate(set) var state = State.initialized
     
     //
     // Child view models that are contained
     //
-    open fileprivate(set) var childViewModels : [ViewModel] = [ViewModel]()
+    public private(set) var childViewModels : [ViewModel] = [ViewModel]()
     
     //
     // MARK: Initialization
@@ -119,12 +125,32 @@ open class ViewModel: NSObject {
     // MARK: Public Methods
     //
     
-    public final func addChildViewModel(_ viewModel: ViewModel) {
+    public final func addChild(viewModel: ViewModel) {
         if (childViewModels.index(where: { $0 === viewModel }) != nil) {
             return
         }
         
         childViewModels.append(viewModel)
+        
+        viewModel.parent = self
+    }
+    
+    public final func removeChild(viewModel: ViewModel) {
+        guard let index = childViewModels.index(where: { $0 === viewModel }) else {
+            return
+        }
+        
+        viewModel.parent = nil
+        
+        childViewModels.remove(at: index)
+    }
+    
+    public final func removeFromParent() {
+        guard let parent = parent else {
+            return
+        }
+        
+        parent.removeChild(viewModel: self)
     }
     
     /*!
