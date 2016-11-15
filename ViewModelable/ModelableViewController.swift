@@ -8,6 +8,11 @@
 
 import UIKit
 
+//
+// The idea behind view model is to have a generic view controller that specifies view model class.
+// Currently Interface Builder is incompatible with generic view controllers, as soon as it is fixed,
+// ViewModelReferencable protocol will be removed, as it serves as a workaround for that.
+//
 //open class ModelableViewController <T : ViewModel>: UIViewController {
 
 open class ModelableViewController : UIViewController {
