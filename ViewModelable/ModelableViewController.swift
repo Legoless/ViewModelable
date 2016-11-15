@@ -8,9 +8,10 @@
 
 import UIKit
 
-open class ModelableViewController <T : ViewModel>: UIViewController {
-    
-    var viewModel : T = T()
+//open class ModelableViewController <T : ViewModel>: UIViewController {
+
+open class ModelableViewController : UIViewController {
+    //var viewModel : T = T()
     
     deinit {
         NotificationCenter.default.removeObserver(self)
