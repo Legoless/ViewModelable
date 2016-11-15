@@ -60,7 +60,7 @@ open class ViewModel: NSObject {
     //
     
     /*!
-     Should be called in View Will Appear, this will setup the defaults and after this state, all input variables
+     Should be called in View Did Load, this will setup the defaults and after this state, all input variables
      should be prepared. Input variables usually should not have Live Realm objects, but their snapshots.
      */
     public final func setup () {
