@@ -80,6 +80,9 @@ class CarViewController : ModelableViewController, ViewModelReferencable, ViewMo
         return viewModel
     }
     
+    //
+    // MARK: ViewModelObservable
+    //
     func viewModelDidLoad (viewModel: ViewModel) {
         //
         // Update screen properties
