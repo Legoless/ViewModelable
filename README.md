@@ -6,7 +6,7 @@ ViewModelable is a simple and lightweight **MVVM** Swift implementation without 
 
 Each View Model should have input variables and output variables, which get populated based on input or local cache. Output variables usually should not be optional. **The concept is that output is always available for UIViewController to render, regardless of device state.**
 
-View Model has several different states:
+View Model has 5 states:
 
 - Initialized
 - Setuped
@@ -14,7 +14,9 @@ View Model has several different states:
 - Loaded
 - Unloading
 
-The cycle follows the state changes. Unload will transition back to setuped state.
+The state changes follow the next path:
+
+*-> Initialized -> Setuped -> Loading -> Loaded -> Updates -> Unloading -> Setuped*
 
 View Model informs the view controller of state changes via observable pattern (similar to delegation). The methods received by the observer:
 
