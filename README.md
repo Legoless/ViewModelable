@@ -18,6 +18,8 @@ The state changes follow the next path:
 
 *-> Initialized -> Setuped -> Loading -> Loaded -> Updates -> Unloading -> Setuped*
 
+Loaded state can receive multiple updates.
+
 View Model informs the view controller of state changes via observable pattern (similar to delegation). The methods received by the observer:
 
 ```swift
