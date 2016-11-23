@@ -25,6 +25,12 @@ xcuserdata
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
+*.dSYM.zip
+*.dSYM
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
 
 # Swift Package Manager
 #
@@ -38,7 +44,7 @@ xcuserdata
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
-# Pods/
+Pods/
 
 # Carthage
 #
@@ -55,7 +61,9 @@ Carthage/Build
 # https://github.com/fastlane/fastlane/blob/master/docs/Gitignore.md
 
 fastlane/report.xml
+fastlane/Preview.html
 fastlane/screenshots
+fastlane/test_output
 
 #
 # Code Coverage
@@ -77,3 +85,8 @@ dominus.cfg
 # KZBootstrap
 #
 KZBootstrapUserMacros.h
+
+#
+# R.swift
+#
+*.generated.swift
