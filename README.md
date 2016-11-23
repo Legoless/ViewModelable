@@ -1,5 +1,13 @@
 # ViewModelable
 
+[![Issues on Waffle](https://img.shields.io/badge/issues on-Waffle-blue.svg)](http://waffle.io/legoless/ViewModelable)
+[![Built by Dominus](https://img.shields.io/badge/built by-Dominus-brightgreen.svg)](http://github.com/legoless/Dominus)
+[![Build Status](https://travis-ci.org/Legoless/ViewModelable.svg)](https://travis-ci.org/legoless/ViewModelable)
+[![Swift Code](https://img.shields.io/badge/code in-Swift-orange.svg)](http://github.com/legoless/ViewModelable)
+[![Pod Version](http://img.shields.io/cocoapods/v/ViewModelable.svg?style=flat)](http://cocoadocs.org/docsets/ViewModelable/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/ViewModelable.svg?style=flat)](http://cocoadocs.org/docsets/ViewModelable/)
+[![Pod License](http://img.shields.io/cocoapods/l/ViewModelable.svg?style=flat)](http://opensource.org/licenses/MIT)
+
 ViewModelable is a simple and lightweight **MVVM** Swift implementation without any external dependencies for iOS. MVVM pattern is usually used with Reactive Extensions, but not necessary. View Model serves to separate any non-UI code away from View Controllers in this case. Each `UIViewController` should have a single instance of a corresponding view model. The logic in view model should always be able to create the initial state, regardless of the device state (even without an internet connection, the view model should be valid).
 
 *ViewModelable supports Swift 3 since version 0.3.*
