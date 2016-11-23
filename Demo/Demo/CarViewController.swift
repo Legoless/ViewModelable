@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ViewModelable
 
 class CarViewController: ModelableViewController, ViewModelObservable, ViewModelReferencable {
     
