@@ -1,7 +1,6 @@
 # ViewModelable
 
 [![Issues on Waffle](https://img.shields.io/badge/issues on-Waffle-blue.svg)](http://waffle.io/legoless/ViewModelable)
-[![Built by Dominus](https://img.shields.io/badge/built by-Dominus-brightgreen.svg)](http://github.com/legoless/Dominus)
 [![Build Status](https://travis-ci.org/Legoless/ViewModelable.svg)](https://travis-ci.org/legoless/ViewModelable)
 [![Swift Code](https://img.shields.io/badge/code in-Swift-orange.svg)](http://github.com/legoless/ViewModelable)
 [![Pod Version](http://img.shields.io/cocoapods/v/ViewModelable.svg?style=flat)](http://cocoadocs.org/docsets/ViewModelable/)
