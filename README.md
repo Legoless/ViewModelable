@@ -1,8 +1,8 @@
 # ViewModelable
 
 [![Issues on Waffle](https://img.shields.io/badge/issues on-Waffle-blue.svg)](http://waffle.io/legoless/ViewModelable)
-[![Build Status](https://travis-ci.org/Legoless/ViewModelable.svg)](https://travis-ci.org/legoless/ViewModelable)
 [![Swift Code](https://img.shields.io/badge/code in-Swift-orange.svg)](http://github.com/legoless/ViewModelable)
+[![Build Status](https://travis-ci.org/Legoless/ViewModelable.svg)](https://travis-ci.org/legoless/ViewModelable)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Pod Version](http://img.shields.io/cocoapods/v/ViewModelable.svg?style=flat)](http://cocoadocs.org/docsets/ViewModelable/)
 [![Pod Platform](http://img.shields.io/cocoapods/p/ViewModelable.svg?style=flat)](http://cocoadocs.org/docsets/ViewModelable/)
