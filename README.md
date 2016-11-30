@@ -43,7 +43,7 @@ You can also check view model's state with using `.state` property. State transi
 
 # Example
 
-The example below implements a simple view model for a car.
+The example below implements a simple view model for a car, without usage of a specific model object.
 
 ```swift
 class CarViewModel : ViewModel {
