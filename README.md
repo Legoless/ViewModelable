@@ -95,6 +95,8 @@ class CarViewController : ModelableViewController, ViewModelReferencable, ViewMo
         //
         // Update screen properties
         //
+        
+        // self.textLabel.text = "\(self.viewModel.horsePower) kW"
     }
 }
 
