@@ -77,7 +77,8 @@ A simple view controller implementation for the view model.
 ```swift
 class CarViewController : ModelableViewController, ViewModelReferencable, ViewModelObservable {
     //
-    // MARK: ViewModelReferencable
+    // MARK: ViewModelReferencable is a temporary protocol to define the ViewModel inside the view controller,
+    //       since generics are not supported by Interface Builder yet (rdar://26802858)
     //
     
     typealias T = CarViewModel
