@@ -12,7 +12,7 @@ ViewModelable is a simple and lightweight **MVVM** Swift implementation without 
 
 Each View Model should have input variables and output variables, which get populated based on input or local cache. Output variables usually should not be optional.
 
-**The concept is that output is always available for `UIViewController` to be displayed, independent of device state.**
+**The idea is that output on a `ViewModel` is always available for `UIViewController` to be displayed, independent of device state.**
 
 View Model has 5 states:
 
