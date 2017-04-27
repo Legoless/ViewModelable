@@ -14,7 +14,7 @@ Each View Model should have input variables and output variables, which get popu
 
 **The idea is that output on a `ViewModel` is always available for `UIViewController` to be displayed, independent of device state.**
 
-View Model has 5 states:
+View Model has 5 transitional states:
 
 - Initialized
 - Setuped
