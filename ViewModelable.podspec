@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "ViewModelable"
   s.version      = "0.4.1"
-  s.summary      = "A lightweight Swift view model implementation with no dependencies."
+  s.summary      = "A lightweight Swift View Model implementation"
 
   s.description  = <<-DESC
                    A lightweight Swift view model implementation with no external dependencies.
