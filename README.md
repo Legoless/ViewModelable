@@ -8,7 +8,7 @@
 [![Pod Platform](http://img.shields.io/cocoapods/p/ViewModelable.svg?style=flat)](http://cocoadocs.org/docsets/ViewModelable/)
 [![Pod License](http://img.shields.io/cocoapods/l/ViewModelable.svg?style=flat)](http://opensource.org/licenses/MIT)
 
-ViewModelable is a simple and lightweight **MVVM** Swift implementation without any external dependencies for iOS. MVVM pattern is usually used with Reactive Extensions for bindings, but not always. View Model serves to separate any non-UI code away from View Controllers in this case. Each `UIViewController` is backed by a single instance of corresponding view model. The logic in view model should always be able to create the initial state, regardless of the device state (even without an internet connection, the view model should be valid).
+ViewModelable is a simple and lightweight **MVVM** Swift implementation without any external dependencies for iOS. MVVM pattern is usually used with Reactive Extensions for bindings, but not always. View Model serves to separate any non-UI code away from View Controllers in this case. Each `UIViewController` is backed by a single instance of corresponding view model. Business logic in view model should always be able to create the initial state, regardless of the device state (even without an internet connection, the view model should be valid).
 
 Each View Model should have input variables and output variables, which get populated based on input or local cache. Output variables usually should not be optional.
 
