@@ -24,7 +24,7 @@ View Model has 5 transitional states:
 
 The state changes follow the next path:
 
-*-> Initialized -> Setuped -> Loading -> Loaded -> Updates -> Unloading -> Setuped*
+Initialized -> Setuped -> Loading -> Loaded -> Updates -> Unloading -> Setuped*
 
 Loaded state can receive multiple callbacks, but the ViewModel cannot proceed back to initialized state.
 
