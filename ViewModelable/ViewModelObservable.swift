@@ -9,22 +9,6 @@
 import Foundation
 
 /*!
- *  Used to cast and access view model reference
- */
-public protocol ViewModelReferencable {
-    var viewModelReference : ViewModel! { get }
-}
-
-/*!
- *  Protocol used in classes that support View Models
- */
-public protocol ViewModelable : ViewModelReferencable {
-    associatedtype T : ViewModel
-    
-    var viewModel : T { get }
-}
-
-/*!
  *  Both methods are not guaranteed to be called back on the same thread as requested,
  *  so be sure to use a dispatch when necessary.
  */
