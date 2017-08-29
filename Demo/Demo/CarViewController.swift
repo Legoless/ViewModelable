@@ -9,7 +9,7 @@
 import UIKit
 import ViewModelable
 
-class CarViewController: ModelableViewController, ViewModelObservable, ViewModelReferencable {
+class CarViewController: ModelableViewController<CarViewModel>, ViewModelObservable {
     
     //
     // MARK: Outlets
@@ -18,18 +18,6 @@ class CarViewController: ModelableViewController, ViewModelObservable, ViewModel
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private weak var topLabel: UILabel!
     @IBOutlet private weak var bottomLabel: UILabel!
-    
-    //
-    // MARK: ViewModelReferencable
-    //
-    
-    typealias T = CarViewModel
-    
-    var viewModel = T()
-    
-    var viewModelReference: ViewModel! {
-        return viewModel
-    }
     
     //
     // MARK: ViewModelObservable

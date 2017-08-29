@@ -1,14 +1,14 @@
 //
-//  ModelableViewController.swift
-//  ViewModelable
+//  ModelableTableViewController.swift
+//  Demo
 //
-//  Created by Dal Rupnik on 06/06/16.
-//  Copyright © 2016 Unified Sense. All rights reserved.
+//  Created by Dal Rupnik on 29/08/2017.
+//  Copyright © 2017 Unified Sense. All rights reserved.
 //
 
 import UIKit
 
-open class ModelableViewController <T : ViewModel> : UIViewController {
+open class ModelableTableViewController <T : ViewModel> : UITableViewController {
     public var viewModel : T = T()
     
     deinit {
@@ -34,10 +34,10 @@ open class ModelableViewController <T : ViewModel> : UIViewController {
         
         viewModel.load()
     }
-
+    
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         viewModel.unload()
     }
 }

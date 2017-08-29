@@ -23,6 +23,8 @@
 		3888B6A71CF393070095EBD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3888B6A61CF393070095EBD9 /* Assets.xcassets */; };
 		3888B6AA1CF393070095EBD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3888B6A81CF393070095EBD9 /* LaunchScreen.storyboard */; };
 		3888B6B51CF393070095EBD9 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3888B6B41CF393070095EBD9 /* DemoTests.swift */; };
+		38F25CF81F557B860007AEFF /* ModelableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F25CF61F557B600007AEFF /* ModelableTableViewController.swift */; };
+		38F25CFA1F557BC20007AEFF /* ModelableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F25CF91F557BC20007AEFF /* ModelableCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		3888B6B01CF393070095EBD9 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3888B6B41CF393070095EBD9 /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
 		3888B6B61CF393070095EBD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38F25CF61F557B600007AEFF /* ModelableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelableTableViewController.swift; sourceTree = "<group>"; };
+		38F25CF91F557BC20007AEFF /* ModelableCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelableCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,8 @@
 			children = (
 				3878E6BE1D058FF40068097F /* ViewModel.swift */,
 				3878E6BF1D058FF40068097F /* ViewModelObservable.swift */,
+				38F25CF91F557BC20007AEFF /* ModelableCollectionViewController.swift */,
+				38F25CF61F557B600007AEFF /* ModelableTableViewController.swift */,
 				3878E6C21D05B4EB0068097F /* ModelableViewController.swift */,
 			);
 			name = ViewModelable;
@@ -389,6 +395,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				381BAE031DE5B36900E52B80 /* ViewModel.swift in Sources */,
+				38F25CF81F557B860007AEFF /* ModelableTableViewController.swift in Sources */,
+				38F25CFA1F557BC20007AEFF /* ModelableCollectionViewController.swift in Sources */,
 				381BAE041DE5B36B00E52B80 /* ViewModelObservable.swift in Sources */,
 				381BAE051DE5B36F00E52B80 /* ModelableViewController.swift in Sources */,
 			);
