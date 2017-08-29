@@ -32,6 +32,9 @@ open class ViewModel: NSObject {
     // MARK: Public Properties
     //
     
+    // If ViewModel should update it's output on loading states.
+    public var updateOutputOnLoad = true
+    
     public private(set) weak var parent: ViewModel?
     
     // Observer of view model, usually a controller or a view
@@ -187,7 +190,9 @@ open class ViewModel: NSObject {
         state = .loaded
         loadDate = Date()
         
-        updateOutput()
+        if updateOutputOnLoad {
+            updateOutput()
+        }
         
         if let observer = self.observer {
             observer.viewModelDidLoad(self)
@@ -202,7 +207,9 @@ open class ViewModel: NSObject {
         state = .setuped
         loadDate = nil
         
-        updateOutput()
+        if updateOutputOnLoad {
+            updateOutput()
+        }
         
         if let observer = observer {
             observer.viewModelDidUnload(self)
