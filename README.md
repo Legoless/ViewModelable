@@ -12,7 +12,7 @@ ViewModelable is a simple and lightweight **Model View ViewModel** pattern imple
 
 Each View Model should have input variables and output variables, which get populated based on input or local cache. Output variables usually should not be optional.
 
-**The idea is that all outputs on `ViewModel` are always defined and initialized for `UIViewController` to be displayed, independent of device state, network connection or similar error states.**
+**The idea is that all outputs on `ViewModel` are always defined and initialized for `UIViewController` to be displayed, independent of device state, network connection or similar error states.** It also allows of easy unit testing for the view models.
 
 View Model has 5 states:
 
