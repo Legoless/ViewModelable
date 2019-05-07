@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class ModelableCollectionViewController <T : ViewModel> : UICollectionViewController {
+open class ModelableCollectionViewController <T : ViewModel> : UICollectionViewController, ViewModelObservable {
     public var viewModel : T = T()
     
     deinit {
@@ -18,12 +18,10 @@ open class ModelableCollectionViewController <T : ViewModel> : UICollectionViewC
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let viewController = self as? ViewModelObservable {
-            viewModel.observer = viewController
-            
-            for childViewModel in viewModel.childViewModels {
-                childViewModel.observer = viewController
-            }
+        viewModel.observer = self
+        
+        for childViewModel in viewModel.childViewModels {
+            childViewModel.observer = self
         }
         
         viewModel.setup()
@@ -39,5 +37,29 @@ open class ModelableCollectionViewController <T : ViewModel> : UICollectionViewC
         super.viewWillDisappear(animated)
         
         viewModel.unload()
+    }
+    
+    open func viewModelDidSetup (_ viewModel: T) {
+        
+    }
+    
+    open func viewModelWillLoad (_ viewModel: T) {
+        
+    }
+    
+    open func viewModelDidLoad (_ viewModel: T) {
+        
+    }
+    
+    open func viewModelDidUpdate (_ viewModel: T, updates: [String : Any]) {
+        
+    }
+    
+    open func viewModelWillUnload (_ viewModel: T) {
+        
+    }
+    
+    open func viewModelDidUnload (_ viewModel: T) {
+        
     }
 }

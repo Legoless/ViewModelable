@@ -9,10 +9,10 @@
 import UIKit
 import ViewModelable
 
-class CarViewController: ModelableViewController<CarViewModel>, ViewModelObservable {
+class CarViewController: ModelableViewController<CarViewModel> {
     
     //
-    // MARK: Outlets
+    // MARK: - Outlets
     //
     
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
@@ -20,32 +20,42 @@ class CarViewController: ModelableViewController<CarViewModel>, ViewModelObserva
     @IBOutlet private weak var bottomLabel: UILabel!
     
     //
-    // MARK: ViewModelObservable
+    // MARK: - ViewModelObservable
     //
     
-    func viewModelDidSetup(_ viewModel: ViewModel) {
+    override func viewModelDidSetup(_ viewModel: ViewModel) {
+        super.viewModelDidSetup(viewModel)
+        
         //
         // Called once after viewDidLoad, view model will be in .setuped state.
         //
         
-        update()
-    }
-    
-    func viewModelDidLoad(_ viewModel: ViewModel) {
-        //
-        // Can be called anytime after viewWillAppear (asychronously) and can be called multiple times.
-        //
+        print("[+] ViewModel: \(viewModel) did setup.")
         
         update()
     }
     
-    func viewModelDidUpdate(_ viewModel: ViewModel, updates: [String : Any]) {
+    override func viewModelDidLoad(_ viewModel: ViewModel) {
+        super.viewModelDidLoad(viewModel)
+        //
+        // Can be called anytime after viewWillAppear (asychronously) and can be called multiple times.
+        //
+        
+        print("[+] ViewModel: \(viewModel) did load.")
+        
+        update()
+    }
+    
+    override func viewModelDidUpdate(_ viewModel: ViewModel, updates: [String : Any]) {
+        super.viewModelDidUpdate(viewModel, updates: updates)
+        
         //
         // Can be called anytime after viewModelDidLoad is called and can be called multiple times.
         //
     }
     
-    func viewModelDidUnload(_ viewModel: ViewModel) {
+    override func viewModelDidUnload(_ viewModel: ViewModel) {
+        super.viewModelDidUnload(viewModel)
         //
         // Will be called after viewWillDisappear, view model transitioned to .setuped state.
         //

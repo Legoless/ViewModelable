@@ -129,7 +129,7 @@ open class ViewModel: NSObject {
     //
     
     public final func addChild(viewModel: ViewModel) {
-        if (childViewModels.index(where: { $0 === viewModel }) != nil) {
+        if (childViewModels.firstIndex(where: { $0 === viewModel }) != nil) {
             return
         }
         
@@ -139,7 +139,7 @@ open class ViewModel: NSObject {
     }
     
     public final func removeChild(viewModel: ViewModel) {
-        guard let index = childViewModels.index(where: { $0 === viewModel }) else {
+        guard let index = childViewModels.firstIndex(where: { $0 === viewModel }) else {
             return
         }
         
