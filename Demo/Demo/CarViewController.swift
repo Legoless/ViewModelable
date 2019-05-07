@@ -23,8 +23,8 @@ class CarViewController: ModelableViewController<CarViewModel> {
     // MARK: - ViewModelObservable
     //
     
-    override func viewModelDidSetup(_ viewModel: ViewModel) {
-        super.viewModelDidSetup(viewModel)
+    override func viewModelDidSetup(viewModel: CarViewModel) {
+        super.viewModelDidSetup(viewModel: viewModel)
         
         //
         // Called once after viewDidLoad, view model will be in .setuped state.
@@ -35,8 +35,8 @@ class CarViewController: ModelableViewController<CarViewModel> {
         update()
     }
     
-    override func viewModelDidLoad(_ viewModel: ViewModel) {
-        super.viewModelDidLoad(viewModel)
+    override func viewModelDidLoad(viewModel: CarViewModel) {
+        super.viewModelDidLoad(viewModel: viewModel)
         //
         // Can be called anytime after viewWillAppear (asychronously) and can be called multiple times.
         //
@@ -46,16 +46,16 @@ class CarViewController: ModelableViewController<CarViewModel> {
         update()
     }
     
-    override func viewModelDidUpdate(_ viewModel: ViewModel, updates: [String : Any]) {
-        super.viewModelDidUpdate(viewModel, updates: updates)
+    override func viewModelDidUpdate(viewModel: CarViewModel, updates: [String : Any]) {
+        super.viewModelDidUpdate(viewModel: viewModel, updates: updates)
         
         //
         // Can be called anytime after viewModelDidLoad is called and can be called multiple times.
         //
     }
     
-    override func viewModelDidUnload(_ viewModel: ViewModel) {
-        super.viewModelDidUnload(viewModel)
+    override func viewModelDidUnload(viewModel: CarViewModel) {
+        super.viewModelDidUnload(viewModel: viewModel)
         //
         // Will be called after viewWillDisappear, view model transitioned to .setuped state.
         //

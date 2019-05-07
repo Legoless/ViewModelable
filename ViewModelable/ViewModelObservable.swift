@@ -12,7 +12,7 @@ import Foundation
  *  Both methods are not guaranteed to be called back on the same thread as requested,
  *  so be sure to use a dispatch when necessary.
  */
-public protocol ViewModelObservable : NSObjectProtocol {
+public protocol ViewModelObservable : class {
     
     /*!
      Called after model is successfully initialized with input data.

@@ -39,27 +39,69 @@ open class ModelableViewController <T : ViewModel> : UIViewController, ViewModel
         viewModel.unload()
     }
     
-    open func viewModelDidSetup (_ viewModel: T) {
+    public func viewModelDidSetup (_ viewModel: ViewModel) {
+        guard let viewModel = viewModel as? T else {
+            return
+        }
+        viewModelDidSetup(viewModel: viewModel)
+    }
+    
+    public func viewModelWillLoad (_ viewModel: ViewModel) {
+        guard let viewModel = viewModel as? T else {
+            return
+        }
+        viewModelWillLoad(viewModel: viewModel)
+    }
+    
+    public func viewModelDidLoad (_ viewModel: ViewModel) {
+        guard let viewModel = viewModel as? T else {
+            return
+        }
+        viewModelDidLoad(viewModel: viewModel)
+    }
+    
+    public func viewModelDidUpdate (_ viewModel: ViewModel, updates: [String : Any]) {
+        guard let viewModel = viewModel as? T else {
+            return
+        }
+        viewModelDidUpdate(viewModel: viewModel, updates: updates)
+    }
+    
+    public func viewModelWillUnload (_ viewModel: ViewModel) {
+        guard let viewModel = viewModel as? T else {
+            return
+        }
+        viewModelWillUnload(viewModel: viewModel)
+    }
+    
+    public func viewModelDidUnload (_ viewModel: ViewModel) {
+        guard let viewModel = viewModel as? T else {
+            return
+        }
+        viewModelDidUnload(viewModel: viewModel)
+    }
+    
+    open func viewModelDidSetup (viewModel: T) {
         
     }
     
-    open func viewModelWillLoad (_ viewModel: T) {
+    open func viewModelWillLoad (viewModel: T) {
         
     }
     
-    open func viewModelDidLoad (_ viewModel: T) {
+    open func viewModelDidLoad (viewModel: T) {
         
     }
     
-    open func viewModelDidUpdate (_ viewModel: T, updates: [String : Any]) {
+    open func viewModelDidUpdate (viewModel: T, updates: [String : Any]) {
         
     }
     
-    open func viewModelWillUnload (_ viewModel: T) {
+    open func viewModelWillUnload (viewModel: T) {
         
     }
     
-    open func viewModelDidUnload (_ viewModel: T) {
+    open func viewModelDidUnload (viewModel: T) {
         
     }
 }
