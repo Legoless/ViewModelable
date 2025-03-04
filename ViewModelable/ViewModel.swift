@@ -22,6 +22,7 @@ public enum State : UInt {
 ///
 /// Abstract Generic View model object, abstract
 ///
+@MainActor
 open class ViewModel: NSObject {
     
     //

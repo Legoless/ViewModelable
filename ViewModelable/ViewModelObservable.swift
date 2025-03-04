@@ -12,7 +12,8 @@ import Foundation
  *  Both methods are not guaranteed to be called back on the same thread as requested,
  *  so be sure to use a dispatch when necessary.
  */
-public protocol ViewModelObservable : class {
+@MainActor
+public protocol ViewModelObservable : AnyObject {
     
     /*!
      Called after model is successfully initialized with input data.
@@ -69,6 +70,7 @@ public protocol ViewModelObservable : class {
 // MARK: Default implementations, so they are optional.
 //
 
+@MainActor
 extension ViewModelObservable {
     
     public func viewModelDidSetup (_ viewModel: ViewModel) {

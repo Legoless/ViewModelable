@@ -8,6 +8,7 @@
 
 import UIKit
 
+@MainActor
 open class ModelableCollectionViewController <T : ViewModel> : UICollectionViewController, ViewModelObservable {
     public var viewModel : T = T()
     

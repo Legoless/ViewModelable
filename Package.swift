@@ -1,10 +1,10 @@
-// swift-tools-version:5.0
+// swift-tools-version:6.0
 import PackageDescription
 
 let package = Package(
     name: "ViewModelable",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v15)
     ],
     products: [
         .library(name: "ViewModelable", targets: ["ViewModelable"]),
@@ -12,7 +12,10 @@ let package = Package(
     targets: [
          .target(
             name: "ViewModelable",
-            path: "ViewModelable"
+            path: "ViewModelable",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
          )
     ]
 )
