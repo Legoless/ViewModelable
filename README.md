@@ -1,13 +1,5 @@
 # ViewModelable
 
-[![Issues on Waffle](https://img.shields.io/badge/issues%20on-Waffle-blue.svg)](http://waffle.io/legoless/ViewModelable)
-[![Swift Code](https://img.shields.io/badge/code%20in-Swift-orange.svg)](http://github.com/legoless/ViewModelable)
-[![Build Status](https://travis-ci.org/Legoless/ViewModelable.svg)](https://travis-ci.org/legoless/ViewModelable)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Pod Version](http://img.shields.io/cocoapods/v/ViewModelable.svg?style=flat)](http://cocoadocs.org/docsets/ViewModelable/)
-[![Pod Platform](http://img.shields.io/cocoapods/p/ViewModelable.svg?style=flat)](http://cocoadocs.org/docsets/ViewModelable/)
-[![Pod License](http://img.shields.io/cocoapods/l/ViewModelable.svg?style=flat)](http://opensource.org/licenses/MIT)
-
 ViewModelable is a simple and lightweight **Model View ViewModel** pattern implementation in Swift without any external dependencies for iOS. MVVM pattern is usually used with Reactive Extensions for bindings, but not always. View Model serves to separate any non-UI code away from View Controllers in this case. Each `UIViewController` is backed by a single instance of corresponding view model. Business logic in view model should always be able to create the initial state, regardless of the device state (even without an internet connection, the view model should be valid).
 
 Each View Model should have input variables and output variables, which get populated based on input or local cache. Output variables usually should not be optional.
@@ -41,11 +33,18 @@ func viewModelDidUnload (viewModel: ViewModel)
 
 You can also check view model's state with using `.state` property. State transitions are asynchronous, because view model usually works with async operations. The callback does not necessarily happen on main thread, so be sure to use dispatch correctly.
 
+# Installation
+
+Add `https://github.com/legoless/ViewModelable` as package to your project using Swift Package Manager.
+
 # Example
 
 The example below implements a simple view model for a car, without usage of a specific model object.
 
 ```swift
+import ViewModelable
+
+@MainActor
 class CarViewModel : ViewModel {
     // MARK: Input
     var make : String?
@@ -77,6 +76,7 @@ class CarViewModel : ViewModel {
 A simple view controller implementation for the view model.
 
 ```swift
+@MainActor
 class CarViewController : ModelableViewController<CarViewModel>, ViewModelObservable {
     //
     // MARK: ViewModelObservable
